@@ -1,0 +1,33 @@
+{
+    "my_policy": {
+      "group_by": ["alertname"],
+      "contact_point": "mlops-dev-alerts",
+      "group_wait": "45s",
+      "group_interval": "6m",
+      "repeat_interval": "3h",
+      "policies": [
+        {
+          "matcher": {
+            "label": "a",
+            "match": "=",
+            "value": "b"
+          },
+          "group_by": ["..."],
+          "contact_point": "mlops-dev-alerts",
+          "mute_timings": ["My Mute Timing"],
+          "policies": [
+            {
+              "matcher": {
+                "label": "sublabel",
+                "match": "=",
+                "value": "subvalue"
+              },
+              "group_by": ["..."],
+              "contact_point": "mlops-dev-alerts"
+            }
+          ]
+        }
+      ]
+    }
+  }
+  
