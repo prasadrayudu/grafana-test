@@ -15,16 +15,16 @@ resource "grafana_contact_point" "mlops-dev-alerts" {
 #------------------------------------------------------
 
 resource "grafana_message_template" "my_alert_template" {
-  name = var.grafana_message_template_name
-  template = var.grafana_message_template 
+  name     = var.grafana_message_template_name
+  template = var.grafana_message_template
 }
 
 #------------------------------------------------------
 #         Provision grafana_notification_policy
 #------------------------------------------------------
 
-
-  resource "grafana_notification_policy" "my_policy" {
+/*
+resource "grafana_notification_policy" "my_policy" {
   for_each = var.notification_policies
 
   group_by      = each.value.group_by
@@ -99,11 +99,11 @@ resource "grafana_mute_timing" "my_mute_timing" {
 resource "grafana_folder" "rule_folder" {
   title = var.rule_folder_title
 }
-
+*/
 #------------------------------------------------------
 #         Provision grafana_rule_group
 #------------------------------------------------------
-
+/*
 # Read the alert_rule.json file
 locals {
   alert_rules = jsondecode(file("${path.module}/alert_rules.json"))
